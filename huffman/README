@@ -1,0 +1,55 @@
+#IZMENA OD PRETHODNOG PUTA:
+	1. Automatski racuna stepen kompresije (appenduje u ./stats.txt)
+	2. Ispravno hendluje padding u poslednjem bajtu (za razliku od proslog hacky nacina)
+	3. Izbaceni fleg za debugovanje iz makefile-a i zamenjena optimizija -O0 na -O3
+
+
+##############################################
+za buildovanje:
+make
+	builduje main program i input generator
+##############################################
+
+########################################################################################
+bin/input_generator:
+pre pokretanja ocekuje da folder tests/ postoji
+generise test primere (random ascii [bez extended ascii] karakteri)
+velicine { 100, 1000, 10000, 100000, 1000000, 10000000 } 
+i upisuje u tests/test{VELICINA}.txt
+########################################################################################
+
+#############################################################################
+get_lorem.sh:
+dependencies:
+	curl (request), jq (parsovanje responsea)
+prima 1 parametar (velicina inputa u bajtovima)
+i salje request na lipsum.com za generisanje teksta
+!!!!izlaz treba da se redirektuje u neki fajl
+primer: ./get_lorem 100 > lorem100.txt
+curl request uzet sa : gist.github.com/candu/33b256292c492f154ade#file-lipsum 
+##############################################################################
+
+######################################################################
+bin/test.sh:
+dependencies:
+	diff
+iako tehnicki nije binary, tu se nalazi i odatle se pokrece
+zbog hardkodiranih putanja 
+za svaki test unutar tests/ foldera pokrece:
+1.	Kodiranje test fajla
+2.	Dekodiranje test fajla
+3.	diff program za uporedjivanje ulaznog fajla i dekodiranog fajla
+koristi exit code iz diff da zakljuci da li je doslo do greske ili je 
+dekodiranje uspelo
+######################################################################
+
+######################################################################
+main program:
+2 moguca argumenta:
+	encode <input file> <output file>
+	decode <input file> <output file>
+na pocetku source fajla je moguce definisati flag DEBUG
+za dodatne informacije u fazi kompresije/dekompresije
+!!!!OBAVEZNO IZNAD #include "../include/huffman.h"
+!!!!JER ON DEFINISE MAKRO ZA DEBUG PRINTOVANJE
+######################################################################

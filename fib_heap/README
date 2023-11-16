@@ -1,0 +1,10 @@
+Postoji mogucnost vizuelizacije heap-a, ali nije interaktivna.
+Dependencies za vizuelizaciju:
+	dot - graphviz version 7.0.4 (0)
+	ImageMagick 7.1.0-54 Q16-HDRI x86_64 20660
+
+$ mv src/main.c src/main_backup.c
+$ mv src/dotvis.cc src/main.c
+$ make
+$ ./bin/main kreira sve potrebne .dot fajlove
+$ ./make_gif.sh objedinjuje pojedinacne frejmove u animaciju

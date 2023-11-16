@@ -1,0 +1,2 @@
+./main vremena.txt matches.txt
+summary (koji algoritam je po vremenu bolji) je na stdout

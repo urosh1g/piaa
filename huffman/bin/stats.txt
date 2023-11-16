@@ -1,0 +1,6 @@
+File ../tests/test10000000.txt (16291457B) compressed to 8751163B (46.28 %)
+File ../tests/test1000000.txt (7291457B) compressed to 876163B (87.98 %)
+File ../tests/test100000.txt (6391457B) compressed to 88663B (98.61 %)
+File ../tests/test10000.txt (6301457B) compressed to 9913B (99.84 %)
+File ../tests/test1000.txt (6292457B) compressed to 2033B (99.97 %)
+File ../tests/test100.txt (6291557B) compressed to 754B (99.99 %)

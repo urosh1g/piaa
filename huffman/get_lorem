@@ -1,0 +1,2 @@
+#!/bin/bash
+curl -s -X POST https://www.lipsum.com/feed/json -d "amount=$1" -d "what=bytes" -d"start=false" | jq -r '.feed.lipsum'

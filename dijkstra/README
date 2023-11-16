@@ -1,0 +1,11 @@
+Prilikom pokretanja programa, moguce je zadati command line argument
+koji predstavlja log fajl za vremena izvrsavanja, ( ./bin/main log.txt )
+u suprotnom ispisuje sve na stdout:
+	-Nacin generisanja grana ( random cvor povezan sa svim ostalim cvorovima [nazvano RANDOM],
+								ili su cvorovi povezani u DAISY_CHAIN [bas se tako i zove] )
+	-Velicina test case-a ( N, K )
+	-Distance izmedju 10 parova cvorova
+	-Ukupno vreme za pronalazak najkraceg puta izmedju tih 10 parova za tu velicinu test case-a
+
+Iskoriscena ista implementacija grafa kao za proslu vezbu
+i ista implementacija za fibonacijev hip kao za 4. vezbu
